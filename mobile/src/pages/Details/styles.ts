@@ -1,12 +1,12 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
         // justifyContent: 'center',
-        paddingHorizontal: 32,
-        paddingTop: 55
+        paddingHorizontal: '8%',
+        paddingTop: "5%"
     },
     header: {
         width: '100%',
@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
     },
     image: {
         width: '100%',
-        height: 150,
+        height: Dimensions.get('screen').height * 0.20,
         marginBottom: 16,
         borderRadius: 32
     },

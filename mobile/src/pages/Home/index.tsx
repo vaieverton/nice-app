@@ -1,6 +1,5 @@
-import { View, Text, Image, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, Image, ImageBackground, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
-import { RectButton } from 'react-native-gesture-handler';
 import { styles } from './styles';
 import { useNavigation } from '@react-navigation/native';
 
@@ -8,12 +7,15 @@ const LoginImg = require('../../images/login-img.png')
 
 const Home = () => {
   const navigation = useNavigation();
-  const [state, setState] = useState(true);
 
-  const handleInitClick = () => {
+  const handleSignIn = () => {
     navigation.navigate('Details');
-    // setState(false)
   }
+
+  const handleSignUp = () => {
+    navigation.navigate('Signup');
+  }
+
   return (
     <ImageBackground
       source={require('../../assets/Background.png')}
@@ -37,19 +39,26 @@ const Home = () => {
 
         <TouchableOpacity
           // type="button"
-          onPress={handleInitClick}
+          onPress={handleSignIn}
           style={styles.buttonIniciar}
         >
           <Text
             style={styles.buttonText}
           >
-            INICIAR
+            ENTRAR
           </Text>
         </TouchableOpacity>
+
+        <Text>Não possui conta?
+          <TouchableOpacity onPress={handleSignUp}>
+            <Text style={styles.orange}>Cadastrar</Text>
+          </TouchableOpacity>
+        </Text>
+
+        <Text>Continuar sem conta</Text>
       </View>
     </ImageBackground>
   )
 }
-
 
 export default Home;

@@ -1,4 +1,5 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+import { Screen, screensEnabled } from "react-native-screens";
 
 export const styles = StyleSheet.create({
     container: {
@@ -7,18 +8,20 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     mainView: {
-        width: '100%',
-        height: '100%',
+        width: Dimensions.get('screen').width,
+        height: Dimensions.get('screen').height * 0.95,
         alignItems: 'center',
-        justifyContent: 'center',
-        padding: 30
-
+        padding: 30,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between'
     },
     mainMessage: {
         display: 'flex',
         textAlign: 'center',
-        fontWeight: 'bold',
-        fontSize: 56
+        fontWeight: '900',
+        fontSize: 36,
+        color: 'black',
     },
     center: {
         display: 'flex',
@@ -26,7 +29,7 @@ export const styles = StyleSheet.create({
     },
     buttonIniciar: {
         backgroundColor: '#97C94B',
-        marginTop: 25,
+        // marginTop: 25,
         borderRadius: 23,
         alignItems: 'center',
         display: 'flex',
