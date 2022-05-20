@@ -6,6 +6,7 @@ import multerConfig from './config/multer';
 
 import ItemsController from './controllers/CategoriasController'
 import PointsController from './controllers/PointsController';
+import UsuarioController from './controllers/UsuarioController';
 
 
 const routes = express.Router();
@@ -13,6 +14,7 @@ const upload = multer(multerConfig);
 
 const itemsController = new ItemsController();
 const pointsController = new PointsController();
+const usuarioController = new UsuarioController();
 
 // get - Buscar informação
 // post - Criar informação
@@ -21,6 +23,11 @@ routes.get('/categorias', itemsController.index);    // index - Para Listagem; s
 
 routes.get('/points', pointsController.index)
 routes.get('/points/:id', pointsController.show)
+
+routes.get('/users', usuarioController.index)
+routes.post('/users', usuarioController.create)
+routes.post('/authentication', usuarioController.authenticate)
+
 
 routes.post(
     '/points',                      // Rota

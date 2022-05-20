@@ -5,7 +5,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'; // 
 import Home from '../pages/Home';
 import Main from '../pages/Main';
 import Details from '../pages/Details';
+import SignUp from '../pages/SignUp';
+
 import { NavigationContainer } from '@react-navigation/native';
+import SignIn from '../pages/SignIn';
+import Recover from '../pages/Recover';
 
 const Routes = () => {
   return (
@@ -14,6 +18,10 @@ const Routes = () => {
         <Screen name='Home' component={Home} />
         <Screen name='Main' component={Main} />
         <Screen name='Details' component={Details} />
+        <Screen name='SignIn' component={SignIn} />
+        <Screen name='SignUp' component={SignUp} />
+        <Screen name='Recover' component={Recover} />
+
 
       </Navigator>
     </NavigationContainer>

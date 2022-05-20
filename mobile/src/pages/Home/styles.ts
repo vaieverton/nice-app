@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: '900',
         fontSize: 36,
-        color: 'black',
+        color: '#000',
     },
     center: {
         display: 'flex',
@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
     buttonIniciar: {
         backgroundColor: '#97C94B',
         // marginTop: 25,
-        borderRadius: 23,
+        borderRadius: 32,
         alignItems: 'center',
         display: 'flex',
         justifyContent: 'center',
@@ -43,6 +43,14 @@ export const styles = StyleSheet.create({
     },
     orange: {
         color: '#ff6519',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+    },
+    orangeButton: {
+        backgroundColor: '#FF9F3F',
+        borderRadius: 8
+    },
+    orangeText: {
+        color: '#fff',
+        fontSize: 12
     }
 });

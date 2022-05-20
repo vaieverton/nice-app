@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text } from 'react-native'
 import React from 'react'
-import MapView, { Marker } from 'react-native-maps'
+import MapView, { Callout, Marker } from 'react-native-maps'
 import { styles } from './styles'
 import { useNavigation } from '@react-navigation/native';
 
@@ -29,8 +29,11 @@ const MainPage = () => {
 
         }}
       >
-        <Marker coordinate={store} onPress={handleToDetails} />
-        {/* <Text style={{position: 'absolute', zIndex: 2, top: 0}}>Olá</Text> */}
+        <Marker coordinate={store}
+        title="Incena"
+        description="This is a description">
+          <Callout />
+        </Marker>
       </MapView>
       <Text>Ok</Text>
     </View>

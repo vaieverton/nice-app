@@ -1,5 +1,6 @@
-import { View, Text, Image, ImageBackground, TouchableOpacity } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text, Image, ImageBackground } from 'react-native'
+import { Button } from 'react-native-paper';
+import React from 'react'
 import { styles } from './styles';
 import { useNavigation } from '@react-navigation/native';
 
@@ -9,11 +10,11 @@ const Home = () => {
   const navigation = useNavigation();
 
   const handleSignIn = () => {
-    navigation.navigate('Details');
+    navigation.navigate('SignIn');
   }
 
   const handleSignUp = () => {
-    navigation.navigate('Signup');
+    navigation.navigate('SignUp');
   }
 
   return (
@@ -37,8 +38,7 @@ const Home = () => {
           e alguns clicks :)
         </Text>
 
-        <TouchableOpacity
-          // type="button"
+        <Button
           onPress={handleSignIn}
           style={styles.buttonIniciar}
         >
@@ -47,13 +47,11 @@ const Home = () => {
           >
             ENTRAR
           </Text>
-        </TouchableOpacity>
+        </Button>
 
-        <Text>Não possui conta?
-          <TouchableOpacity onPress={handleSignUp}>
-            <Text style={styles.orange}>Cadastrar</Text>
-          </TouchableOpacity>
-        </Text>
+        <Button style={styles.orangeButton} onPress={() => navigation.navigate('SignUp')}>
+          <Text style={styles.orangeText}>Ainda não é cadastrado?</Text>
+        </Button>
 
         <Text>Continuar sem conta</Text>
       </View>
