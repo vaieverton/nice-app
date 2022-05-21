@@ -52,15 +52,16 @@ class PointsController {
     }
 
     async create(request: Request, response: Response) {
+        console.log('chegou')
         const {     // desestruturação do item   (const name = request.body.name)
             name,
             email,
             whatsapp,
             latitude,
             longitude,
-            city,
-            uf,
-            items
+            items,
+            description,
+            endereco,
         } =  request.body;
     
         const trx = await Knex.transaction();       // Garante que toda a operaçõa será executada, ou caso alguma falhe, cancele
@@ -72,8 +73,9 @@ class PointsController {
             whatsapp,
             latitude,
             longitude,
-            city,
-            uf
+            description,
+            endereco,
+            items,
         }
     
         const insertedIds = await trx('points').insert(point);
@@ -85,8 +87,8 @@ class PointsController {
             .map((item: string) => Number(item.trim()))
             .map( (categoria_id: number) => {    // relaciona o ponto com os elementos que ele vai coletar
                 return {
-                    item_id: categoria_id,
-                    point_id: point_id,
+                    categoria_id,
+                    point_id,
                 }
         });
     

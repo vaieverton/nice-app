@@ -11,6 +11,7 @@ export async function up(knex: Knex) {  // forma de utilizar o Typescript para a
         table.decimal('latitude').notNullable();
         table.decimal('longitude').notNullable();
         table.string('endereco').notNullable();
+        table.string('items').notNullable();
     });
 }
 

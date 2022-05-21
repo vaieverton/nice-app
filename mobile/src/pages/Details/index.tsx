@@ -1,7 +1,7 @@
 import { View, Text, Image, ImageBackground, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { styles } from './styles'
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { ScrollView } from 'react-native-gesture-handler';
 
 const Photo = require('../../images/code.jpg')
@@ -9,6 +9,8 @@ const Logo = require('../../images/logo-black.png')
 
 const Details = () => {
   const navigation = useNavigation();
+  const route = useRoute();
+  // const { item } = route.params;
 
   return (
     <ImageBackground

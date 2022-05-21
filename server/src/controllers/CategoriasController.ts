@@ -4,7 +4,6 @@ import Knex from '../database/connection';
 class CategoriaController {
     async index(request: Request, response: Response) {   // Consultar itens
         const categorias = await Knex('categorias').select('*');    // Seleciona todos os elelementos da tabela "itens"
-        console.log('chegou')
         const serializedItems = categorias.map( item => { // Percorre todos os itens e permite modificá-los
             return {
                 id: item.id,
