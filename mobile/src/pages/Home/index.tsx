@@ -53,7 +53,7 @@ const Home = () => {
           </Text>
         </Button>
 
-        <Button style={styles.orangeButton} onPress={() => navigation.navigate('SignUp')}>
+        <Button compact={false} style={styles.orangeButton} onPress={() => navigation.navigate('SignUp')}>
           <Text style={styles.orangeText}>Ainda não é cadastrado?</Text>
         </Button>
 

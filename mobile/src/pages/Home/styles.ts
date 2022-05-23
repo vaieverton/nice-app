@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         display: 'flex',
         justifyContent: 'center',
-        width: '50%',
+        width: '83%',
         height: 50,
     },
     buttonText: {

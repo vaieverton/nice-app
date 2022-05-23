@@ -12,12 +12,13 @@ export const styles = StyleSheet.create({
         width: '100%',
         display: 'flex',
         flexDirection: 'row',
+        justifyContent: 'space-between',
         marginBottom: 16,
 
     },
     image: {
-        width: 192,
-        height: Dimensions.get('screen').height * 0.20,
+        width: Dimensions.get('screen').width * 0.85,
+        height: Dimensions.get('screen').height * 0.25,
         marginBottom: 16,
         borderRadius: 32
     },

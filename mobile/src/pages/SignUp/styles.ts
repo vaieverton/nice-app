@@ -15,6 +15,7 @@ export const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
+        paddingBottom: 100
     },
     field: {
         width: Dimensions.get('screen').width * 0.85,
@@ -22,7 +23,7 @@ export const styles = StyleSheet.create({
         backgroundColor: '#F4F4F4',
         color: 'black',
         borderRadius: 16,
-        marginTop: 12,
+        marginTop: 16,
     },
     buttonSubmit: {
         backgroundColor: 'orange',

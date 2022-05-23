@@ -18,8 +18,8 @@ export const styles = StyleSheet.create({
     },
     item: {
         display: 'flex',
-        backgroundColor: 'lightgrey',
-        width: width * 0.15,
+        // backgroundColor: 'lightgrey',
+        width: height * 0.10,
         height: height * 0.10,
         borderRadius: 24,
         alignItems: 'center',
@@ -44,6 +44,10 @@ export const styles = StyleSheet.create({
         zIndex: -999
 
     },
+    image: {
+        width: height * 0.08,
+        height: height * 0.08,
+    },
     font: {
         fontSize: height * 0.02
     },
@@ -51,6 +55,11 @@ export const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    itemm: {
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'column',
     }
 
 })

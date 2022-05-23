@@ -1,11 +1,11 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, Linking } from 'react-native'
 import React, { useEffect, useState, } from 'react'
 import MapView, { Callout, Marker } from 'react-native-maps';
 import { styles } from './styles'
 import { useNavigation } from '@react-navigation/native';
 import api from '../../services/api';
 import { Button } from 'react-native-paper';
-import { ScrollView } from 'react-native-gesture-handler';
+import { RectButton, ScrollView } from 'react-native-gesture-handler';
 
 export interface Point {
   id?: number;
@@ -95,6 +95,7 @@ const MainPage = () => {
             coordinate={{ latitude: point.latitude, longitude: point.longitude }}
             title={point.name}
             description={point.description}
+            onCalloutPress={() => handleToDetails(point.id)}
           >
 
             <Callout />
@@ -102,8 +103,9 @@ const MainPage = () => {
         ))}
       </MapView> */}
 
-      <View>
+      <View style={styles.map}>
         {pointsToMap.map((point) => <Button onPress={() => handleToDetails(point.id)}>{point.name}</Button>)}
+
       </View>
 
 
@@ -111,10 +113,29 @@ const MainPage = () => {
 
 
       <ScrollView style={styles.footer} horizontal>
+        <View style={styles.flexCenter}>
+          {/* <Button style={styles.item} onPress={() => handleFilter(category.id)}>
+
+            </Button> */}
+          <Button mode='text' onPress={() => Linking.openURL('http://192.168.0.8:3000/create-point')}>
+
+            {/* <Image source={{ uri: categorias[0]?.image_url }} style={styles.image} /> */}
+          </Button>
+
+
+          <Text style={styles.font}>+ Ponto</Text>
+        </View>
         {categorias.map((category) => (
           <View style={styles.flexCenter}>
-            <Button style={styles.item} onPress={() => handleFilter(category.id)}>
+            {/* <Button style={styles.item} onPress={() => handleFilter(category.id)}>
+
+            </Button> */}
+            <Button mode='text' onPress={() => handleFilter(category.id)}>
+
+              <Image source={{ uri: category.image_url }} style={styles.image} />
             </Button>
+
+
             <Text style={styles.font}>{category.title}</Text>
           </View>
         ))}

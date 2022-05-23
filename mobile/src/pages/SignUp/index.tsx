@@ -49,21 +49,23 @@ export default function SignUp() {
           Crie sua conta
         </Text>
 
-        <TextInput
-          placeholder='Usuário'
-          onChangeText={(e) => setUsername(e)}
-          style={styles.field}
-        />
-        <TextInput
-          placeholder='Email'
-          onChangeText={(e) => setEmail(e)}
-          style={styles.field}
-        />
-        <TextInput
-          placeholder='Senha'
-          onChangeText={(e) => setPassword(e)}
-          style={styles.field}
-        />
+        <View>
+          <TextInput
+            placeholder='Usuário'
+            onChangeText={(e) => setUsername(e)}
+            style={styles.field}
+          />
+          <TextInput
+            placeholder='Email'
+            onChangeText={(e) => setEmail(e)}
+            style={styles.field}
+          />
+          <TextInput
+            placeholder='Senha'
+            onChangeText={(e) => setPassword(e)}
+            style={styles.field}
+          />
+        </View>
 
         <Button style={styles.buttonSubmit} onPress={handleSubmit}>
           <Text style={{ color: 'white', fontSize: 20 }}>Cadastrar-se</Text>

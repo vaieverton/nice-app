@@ -57,6 +57,7 @@ const Details = () => {
           />
 
           <View style={{ width: '100%', alignItems: 'flex-start' }}>
+
             <Text style={styles.title}>{point?.name}</Text>
 
             <Text style={styles.text}>
