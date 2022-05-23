@@ -8,8 +8,8 @@ class CategoriaController {
             return {
                 id: item.id,
                 title: item.title,
-                //image_url: `http://localhost:3333/uploads/${item.image}`,   // Para o frontend
-                image_url: `http://localhost:3333/uploads/${item.image}`, // Para ficar visível na rede para o Smartphone
+                // image_url: `http://localhost:3333/uploads/${item.image}`,   // Para o frontend
+                image_url: `http://192.168.0.8:3333/uploads/${item.image}`, // Para ficar visível na rede para o Smartphone
             };
         });      
         return response.json(serializedItems);

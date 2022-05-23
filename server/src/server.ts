@@ -6,6 +6,9 @@ import { errors } from 'celebrate';
 
 
 const app = express();      // Por padrão não entende o Json
+
+const port = process.env.PORT || 3333;
+
 app.use(express.json());    // Então precisamos dessa chamada
 
 app.use(cors());    // informar a url do frontend
@@ -16,7 +19,7 @@ app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));  
 
 app.use(errors()); // Forma padrão do celebrate trabalahr com erros de validação
 
-app.listen(3333, () => console.log('Server - ON')); 
+app.listen(port, () => console.log('Server - ON')); 
 
 
 
