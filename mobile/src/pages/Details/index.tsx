@@ -1,8 +1,10 @@
 import { View, Text, Image, ImageBackground, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { styles } from './styles'
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { ScrollView } from 'react-native-gesture-handler';
+import api from '../../services/api';
+import { Point } from '../Main';
 
 const Photo = require('../../images/code.jpg')
 const Logo = require('../../images/logo-black.png')
@@ -10,7 +12,25 @@ const Logo = require('../../images/logo-black.png')
 const Details = () => {
   const navigation = useNavigation();
   const route = useRoute();
-  // const { item } = route.params;
+  const { data } = route.params;
+
+  const [points, setPoints] = useState<Point[]>([]);
+
+  const [point, setPoint] = useState<Point>();
+
+  useEffect(() => {
+    setPoint(points.find((_point) => data.toString() === _point.id?.toString()))
+  }, [points])
+
+  useEffect(() => {
+    const fetch = async () => {
+      await api.get(`/points`)
+      .then((response) => setPoints(response.data))
+      .catch(() => console.log('erro'))
+    }
+
+    fetch();
+  }, [])
 
   return (
     <ImageBackground
@@ -31,28 +51,29 @@ const Details = () => {
           </View>
           <Image
             style={styles.image}
-            source={Photo}
+            source={{
+              uri: point?.image_url
+            }}
           />
 
-          <View style={{ alignItems: 'flex-start' }}>
-            <Text style={styles.title}>InCena Centro de Artes</Text>
+          <View style={{ width: '100%', alignItems: 'flex-start' }}>
+            <Text style={styles.title}>{point?.name}</Text>
 
             <Text style={styles.text}>
               <Text style={styles.descriptionTitle}>Descrição: </Text>
-              Aulas gratuitas de ballet clássico e danças
-              urbanas para jovens com idades entre 11 e 17 anos. A iniciativa é voltada
-              exclusivamente para moradores da Zona Leste de Manaus.
+              {point?.description}
             </Text>
             <Text style={styles.text}>
               <Text style={styles.enderecoTitle}>Endereço: </Text>
-              R. Dom Bôsco, 121 - Coroado I, Manaus - AM, 69080-370
+              {point?.endereco}
             </Text >
 
             <Text style={styles.text}>
               <Text style={styles.phone}>Telefone: </Text>
-              (92) 984144373
+              {point?.whatsapp}
             </Text >
           </View>
+
         </View>
       </ScrollView>
     </ImageBackground>

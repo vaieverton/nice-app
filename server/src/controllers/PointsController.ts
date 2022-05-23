@@ -3,19 +3,15 @@ import Knex from '../database/connection';
 
 class PointsController {
     async index(request: Request, response: Response) {
-        const { city, uf, items } = request.query;
-
-        const parsedItems = String(items)       // Força os itens a se tornarem uma string
-            .split(',')                         // corta nas vírgulas
-            .map(item => Number(item.trim()));  // Remove os espaços dos elmentos
-
         const points = await Knex('points')
-            .join('point_categoria', 'points.id', '=', 'point_categoria.point_id')
+            // .join('point_categoria', 'points.id', '=', 'point_categoria.point_id')
             // .whereIn('point_categoria.categoria_id', parsedItems)
-            // .where('city', String(city))
+            // .where('id', String(id))
+            .select('points.*')
+
             // .where('uf', String(uf))
             // .distinct()
-            .select('points.*');
+            // .select('points.*');
 
             const serializedPoints = points.map( point => { // Percorre todos os itens e permite modificá-los
                 return {

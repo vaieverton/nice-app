@@ -14,7 +14,7 @@ import Recover from '../pages/Recover';
 const Routes = () => {
   return (
     <NavigationContainer>
-      <Navigator initialRouteName='Main' screenOptions={{ headerShown: false }}>
+      <Navigator initialRouteName='Home' screenOptions={{ headerShown: false }}>
         <Screen name='Home' component={Home} />
         <Screen name='Main' component={Main} />
         <Screen name='Details' component={Details} />

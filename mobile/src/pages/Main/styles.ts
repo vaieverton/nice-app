@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     footer: {
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'center',
+        // alignItems: 'center',rr
 
     },
     item: {
@@ -25,7 +25,23 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginRight: 8,
-        fontSize: 12
+        fontSize: 12,
+
+    },
+    itemView: {
+        display: 'flex',
+        backgroundColor: 'lightgrey',
+        width: width * 0.15,
+        height: height * 0.10,
+        borderRadius: 24,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginRight: 8,
+        fontSize: 12,
+        borderWidth: 5,
+        borderColor: 'green',
+        borderStyle: 'solid',
+        zIndex: -999
 
     },
     font: {

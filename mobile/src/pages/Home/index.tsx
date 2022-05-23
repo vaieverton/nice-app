@@ -17,6 +17,10 @@ const Home = () => {
     navigation.navigate('SignUp');
   }
 
+  const handleHome = () => {
+    navigation.navigate('Main');
+  }
+
   return (
     <ImageBackground
       source={require('../../assets/Background.png')}
@@ -53,7 +57,9 @@ const Home = () => {
           <Text style={styles.orangeText}>Ainda não é cadastrado?</Text>
         </Button>
 
-        <Text>Continuar sem conta</Text>
+        <Button onPress={handleHome}>
+          <Text>Continuar sem conta</Text>
+        </Button>
       </View>
     </ImageBackground>
   )

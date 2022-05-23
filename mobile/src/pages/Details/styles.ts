@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
 
     },
     image: {
-        width: '100%',
+        width: 192,
         height: Dimensions.get('screen').height * 0.20,
         marginBottom: 16,
         borderRadius: 32
