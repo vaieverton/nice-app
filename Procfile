@@ -1,1 +1,1 @@
-web: yarn && node src/server.ts --experimental-modules
+web: yarn && node src/server.js
