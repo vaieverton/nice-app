@@ -6,6 +6,8 @@ import { useNavigation } from '@react-navigation/native';
 import api from '../../services/api';
 import { Button } from 'react-native-paper';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
+import Loading from '../Loading';
+const Add = require('../../images/add.png')
 
 export interface Point {
   id?: number;
@@ -28,8 +30,14 @@ const store = {
   longitudeDelta: 0.01,
 };
 
+
+{/* <View style={styles.map}>
+        {pointsToMap.map((point) => <Button onPress={() => handleToDetails(point.id)}>{point.name}</Button>)}
+
+      </View> */}
 const MainPage = () => {
   const [points, setPoints] = useState<Point[]>([]);
+  const [loading, setLoading] = useState(true);
   const [categorias, setCategorias] = useState<any[]>([]);
   const [filteredPoints, setFilteredPoints] = useState<any[]>([]);
   const [filter, setFilter] = useState<number[]>([])
@@ -43,6 +51,8 @@ const MainPage = () => {
     const fetch = async () => {
       await api.get('/points').then((response) => setPoints(response.data));
       await api.get('/categorias').then((response) => setCategorias(response.data));
+
+      setLoading(false)
     }
 
     fetch();
@@ -72,74 +82,62 @@ const MainPage = () => {
 
   return (
     <View style={{ flex: 1 }}>
+      {loading ? <Loading /> : (
+        <>
+          {/* <MapView
+            loadingEnabled={true}
+            style={styles.map}
+            showsMyLocationButton
+            showsScale
+            showsUserLocation
+            region={{
+              latitude: -3.061068,
+              longitude: -59.9994999,
+              latitudeDelta: 0,
+              longitudeDelta: 0.13
 
-      {/* <View style={styles.map}>
-        <Image source={categorias[0]?.image_url} style={styles.item} />
-      </View> */}
-      {/* <MapView
-        loadingEnabled={true}
-        style={styles.map}
-        showsMyLocationButton
-        showsScale
-        showsUserLocation
-        region={{
-          latitude: -3.061068,
-          longitude: -59.9994999,
-          latitudeDelta: 0,
-          longitudeDelta: 0.13
-
-        }}
-      >
-        {pointsToMap.map((point) => (
-          <Marker
-            coordinate={{ latitude: point.latitude, longitude: point.longitude }}
-            title={point.name}
-            description={point.description}
-            onCalloutPress={() => handleToDetails(point.id)}
+            }}
           >
+            {pointsToMap.map((point) => (
+              <Marker
+                coordinate={{ latitude: point.latitude, longitude: point.longitude }}
+                title={point.name}
+                description={point.description}
+                onCalloutPress={() => handleToDetails(point.id)}
+              >
 
-            <Callout />
-          </Marker>
-        ))}
-      </MapView> */}
+                <Callout />
+              </Marker>
+            ))}
+          </MapView> */}
 
-      <View style={styles.map}>
-        {pointsToMap.map((point) => <Button onPress={() => handleToDetails(point.id)}>{point.name}</Button>)}
-
-      </View>
-
-
-
-
-
-      <ScrollView style={styles.footer} horizontal>
-        <View style={styles.flexCenter}>
-          {/* <Button style={styles.item} onPress={() => handleFilter(category.id)}>
-
-            </Button> */}
-          <Button mode='text' onPress={() => Linking.openURL('http://192.168.0.8:3000/create-point')}>
-
-            {/* <Image source={{ uri: categorias[0]?.image_url }} style={styles.image} /> */}
-          </Button>
-
-
-          <Text style={styles.font}>+ Ponto</Text>
-        </View>
-        {categorias.map((category) => (
-          <View style={styles.flexCenter}>
-            {/* <Button style={styles.item} onPress={() => handleFilter(category.id)}>
-
-            </Button> */}
-            <Button mode='text' onPress={() => handleFilter(category.id)}>
-
-              <Image source={{ uri: category.image_url }} style={styles.image} />
-            </Button>
-
-
-            <Text style={styles.font}>{category.title}</Text>
+          <View style={styles.map}>
+            {pointsToMap.map((point) => <Button onPress={() => handleToDetails(point.id || 1)}>{point.name}</Button>)}
           </View>
-        ))}
-      </ScrollView>
+          <ScrollView style={styles.footer} horizontal>
+            {categorias.map((category) => (
+              <View style={styles.flexCenter}>
+                <Button mode='text' onPress={() => handleFilter(category.id)}>
+
+                  <Image source={{ uri: category.image_url }} style={styles.image} />
+                </Button>
+
+
+                <Text style={styles.font}>{category.title}</Text>
+              </View>
+            ))}
+            <View style={styles.flexCenter}>
+              <Button mode='text' onPress={() => Linking.openURL('https://nice-app.vercel.app/')}>
+
+                <Text>+</Text>
+              </Button>
+
+
+              <Text style={styles.font}>+ Ponto</Text>
+            </View>
+          </ScrollView>
+        </>
+      )}
     </View>
   )
 }
