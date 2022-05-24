@@ -23,13 +23,6 @@ export interface Point {
   ids?: number[];
 }
 
-const store = {
-  latitude: -3.061068,
-  longitude: -59.9994999,
-  latitudeDelta: 0.01,
-  longitudeDelta: 0.01,
-};
-
 
 {/* <View style={styles.map}>
         {pointsToMap.map((point) => <Button onPress={() => handleToDetails(point.id)}>{point.name}</Button>)}
@@ -84,7 +77,7 @@ const MainPage = () => {
     <View style={{ flex: 1 }}>
       {loading ? <Loading /> : (
         <>
-          {/* <MapView
+          <MapView
             loadingEnabled={true}
             style={styles.map}
             showsMyLocationButton
@@ -109,14 +102,14 @@ const MainPage = () => {
                 <Callout />
               </Marker>
             ))}
-          </MapView> */}
+          </MapView>
 
-          <View style={styles.map}>
+          {/* <View style={styles.map}>
             {pointsToMap.map((point) => <Button onPress={() => handleToDetails(point.id || 1)}>{point.name}</Button>)}
-          </View>
-          <ScrollView style={styles.footer} horizontal>
+          </View> */}
+          <ScrollView style={styles.footer} horizontal centerContent>
             {categorias.map((category) => (
-              <View style={styles.flexCenter}>
+              <View style={filter.includes(category.id) ? styles.flexCenterSelected : styles.flexCenter}>
                 <Button mode='text' onPress={() => handleFilter(category.id)}>
 
                   <Image source={{ uri: category.image_url }} style={styles.image} />

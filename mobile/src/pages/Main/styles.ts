@@ -13,7 +13,6 @@ export const styles = StyleSheet.create({
     footer: {
         display: 'flex',
         flexDirection: 'row',
-        // alignItems: 'center',rr
 
     },
     item: {
@@ -54,7 +53,21 @@ export const styles = StyleSheet.create({
     flexCenter: {
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginRight: 2,
+        height: height * 0.15
+    },
+    flexCenterSelected: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 1,
+        borderColor: 'blue',
+        borderRadius: 12,
+        marginRight: 2,
+        height: height * 0.15
+
+
     },
     itemm: {
         display: 'flex',
