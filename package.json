@@ -1,16 +1,24 @@
 {
     "name": "server",
     "version": "1.0.0",
+    "type": "module",
     "description": "",
     "main": "index.js",
     "scripts": {
         "dev": "ts-node-dev src/server.ts",
         "prod": "node src/server.ts",
+        "build": "babel index.ts -d dist",
         "dev2": "ts-node-dev --ignore-watch node_modules src/server.ts",
         "knex:seed": "knex --knexfile knexfile.ts seed:run",
         "knex:migrate": "knex --knexfile knexfile.ts migrate:latest"
     },
-    "keywords": [],
+    "engines": {
+        "node": "12.13",
+        "npm": "6.12"
+    },
+    "keywords": [
+        "heroku"
+    ],
     "author": "",
     "license": "ISC",
     "dependencies": {

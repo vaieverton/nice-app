@@ -1,0 +1,1 @@
+web: yarn && node src/server.ts --experimental-modules

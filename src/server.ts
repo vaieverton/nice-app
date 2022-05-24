@@ -1,25 +1,26 @@
-import cors from 'cors';
 import express from 'express';
 import path from 'path';
 import routes from './routes';
 import { errors } from 'celebrate';
+import cors from 'cors';
 
 
-const app = express();      // Por padrão não entende o Json
+
+const app = express(); // Por padrão não entende o Json
 
 const port = process.env.PORT || 3333;
 
-app.use(express.json());    // Então precisamos dessa chamada
+app.use(express.json()); // Então precisamos dessa chamada
 
-app.use(cors());    // informar a url do frontend
+app.use(cors()); // informar a url do frontend
 app.use(routes);
 
-app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));  // static - usado para arquivos estaticos (downloads por exemplo)
-        // path, por trabalhar com caminhos
+app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads'))); // static - usado para arquivos estaticos (downloads por exemplo)
+// path, por trabalhar com caminhos
 
 app.use(errors()); // Forma padrão do celebrate trabalahr com erros de validação
 
-app.listen(port, () => console.log('Server - ON')); 
+app.listen(port, () => console.log('Server - ON'));
 
 
 
