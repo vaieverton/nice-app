@@ -16,7 +16,7 @@ class PointsController {
             const serializedPoints = points.map( point => { // Percorre todos os itens e permite modificá-los
                 return {
                     ...point,
-                    image_url: `http://192.168.0.8:3333/uploads/${point.image}`, // Para ficar visível na rede para o Smartphone
+                    image_url: `https://nice-app-server-2.herokuapp.com/uploads/${point.image}`, // Para ficar visível na rede para o Smartphone
                 };
             });      
         
@@ -33,7 +33,7 @@ class PointsController {
 
         const serializedPoint =  { 
             ...point,
-            image_url: `http://192.168.0.8:3333/uploads/${point.image}`,
+            image_url: `https://nice-app-server-2.herokuapp.com/uploads/${point.image}`,
         };
 
         const items = await Knex('categorias')

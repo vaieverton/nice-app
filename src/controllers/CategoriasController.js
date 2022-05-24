@@ -56,7 +56,7 @@ var CategoriaController = /** @class */ (function () {
                                 id: item.id,
                                 title: item.title,
                                 // image_url: `http://localhost:3333/uploads/${item.image}`,   // Para o frontend
-                                image_url: "http://192.168.0.8:3333/uploads/" + item.image,
+                                image_url: "https://nice-app-server-2.herokuapp.com/uploads/" + item.image,
                             };
                         });
                         return [2 /*return*/, response.json(serializedItems)];

@@ -71,7 +71,7 @@ var PointsController = /** @class */ (function () {
                     case 1:
                         points = _a.sent();
                         serializedPoints = points.map(function (point) {
-                            return __assign(__assign({}, point), { image_url: "http://192.168.0.8:3333/uploads/" + point.image });
+                            return __assign(__assign({}, point), { image_url: "https://nice-app-server-2.herokuapp.com/uploads/" + point.image });
                         });
                         return [2 /*return*/, response.json(serializedPoints)];
                 }
@@ -91,7 +91,7 @@ var PointsController = /** @class */ (function () {
                         if (!point) {
                             return [2 /*return*/, response.status(400).json({ message: 'Point not found.' })];
                         }
-                        serializedPoint = __assign(__assign({}, point), { image_url: "http://192.168.0.8:3333/uploads/" + point.image });
+                        serializedPoint = __assign(__assign({}, point), { image_url: "https://nice-app-server-2.herokuapp.com/uploads/" + point.image });
                         return [4 /*yield*/, connection_1.default('categorias')
                                 .join('point_categoria', 'categorias.id', '=', 'point_categoria.categoria_id')
                                 .where('point_categoria.point_id', id)
