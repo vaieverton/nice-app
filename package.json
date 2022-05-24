@@ -7,7 +7,7 @@
     "scripts": {
         "dev": "ts-node-dev src/server.ts",
         "prod": "node src/server.ts",
-        "build": "tsc && node src/server.js",
+        "build": "tsc",
         "dev2": "ts-node-dev --ignore-watch node_modules src/server.ts",
         "knex:seed": "knex --knexfile knexfile.ts seed:run",
         "knex:migrate": "knex --knexfile knexfile.ts migrate:latest"
